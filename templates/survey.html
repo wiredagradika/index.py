@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/jpeg" href="static/index.jpeg">
+	<title>Survey RSPKT | Survey</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  	<ul class="navbar-nav">
+			<li class="nav-item active"><a class="navbar-brand" href="#">
+				<img src="/static/index.jpeg" width="40" height="30" class="d-inline-block align-top" alt="">Home</a></li>
+	    	<li class="nav-item"><a class="nav-link disabled" href="#">More</a></li>
+	  	</ul>
+	</nav>
+	<div class="jumbotron">
+  		<h1>Survey RS Pupuk Kaltim</h1> 
+  		<p>Survey terkait kepuasan pelanggan RS Pupuk Kaltim demi meningkatkan pelayanan kedepannya.</p> 
+	</div>
+	<div class="container">
+			<form action="/ThankYou" method="POST">
+{% for soal in result_q %}
+				<label>{{ soal[0] }}. {{ soal[1] }}?</label>			    
+{% for jawaban in result_a %}
+				<div class="custom-control custom-radio">
+{% if soal[0] == 1 %}
+					<input type="radio" class="custom-control-input" id="r1{{ jawaban[0] }}" name="rQ1" value="{{ jawaban[0] }}" required="">
+					<label class="custom-control-label" for="r1{{ jawaban[0] }}">{{ jawaban[1] }}</label>
+{% endif %}
+{% if soal[0] == 2 %}
+					<input type="radio" class="custom-control-input" id="r2{{ jawaban[0] }}" name="rQ2" value="{{ jawaban[0] }}" required="">
+					<label class="custom-control-label" for="r2{{ jawaban[0] }}">{{ jawaban[1] }}</label>
+{% endif %}
+{% if soal[0] == 3 %}
+					<input type="radio" class="custom-control-input" id="r3{{ jawaban[0] }}" name="rQ3" value="{{ jawaban[0] }}" required="">
+					<label class="custom-control-label" for="r3{{ jawaban[0] }}">{{ jawaban[1] }}</label>
+{% endif %}
+{% if soal[0] == 4 %}
+					<input type="radio" class="custom-control-input" id="r4{{ jawaban[0] }}" name="rQ4" value="{{ jawaban[0] }}" required="">
+					<label class="custom-control-label" for="r4{{ jawaban[0] }}">{{ jawaban[1] }}</label>
+{% endif %}
+				</div>
+{% endfor %}
+{% endfor %}
+				<input type="text" hidden name="umur" value={{ umur }}>
+				<input type="text" hidden name="jenis_kel" value={{ jenis_kel }}>
+{% for id_responden in result_r %}
+				<input type="text" hidden name="id_res" value={{ id_responden[0]+1 }}>
+{% endfor %}
+   				<br>
+				<button type="submit" class="btn btn-primary">Submit</button>
+
+			</form>
+		</div>		
+	</div>
+	<br>
+</body>
+</html>

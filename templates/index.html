@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/jpeg" href="static/index.jpeg">
+	<title>Survey RSPKT | Personal Information</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  	<ul class="navbar-nav">
+			<li class="nav-item active"><a class="navbar-brand" href="#">
+				<img src="/static/index.jpeg" width="40" height="30" class="d-inline-block align-top" alt="">Home</a></li>
+	    	<li class="nav-item"><a class="nav-link" href="/Result">Result</a></li>
+	  	</ul>
+	</nav>
+	
+	<div class="alert alert-secondary">
+  		<h1>Survey RS Pupuk Kaltim</h1> 
+  		<p>Survey Terkait Kepuasan Pelanggan RS Pupuk Kaltim Demi Meningkatkan Pelayanan Kedepannya.</p> 
+		<center><img src="/static/front.jpg" class="img" alt="Responsive image" style="width:80%;"></img></center> 
+	</div>
+	
+	<div class="container">
+		<form method="POST" action="/Survey">
+			<div class="form-group row">
+				<div class="col-3">
+					<label for="umur">Umur :</label>
+				    	<input type="umur" class="form-control" id="umur" name="umur" required="" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+				</div>
+			</div>			    
+			<div class="custom-control custom-radio">
+				<input type="radio" class="custom-control-input" id="rLaki" name="radioJK" value="L" checked="">
+				<label class="custom-control-label" for="rLaki">Laki-Laki</label>
+			</div>
+			<div class="custom-control custom-radio">
+				<input type="radio" class="custom-control-input" id="rPerempuan" name="radioJK" value="P">
+				<label class="custom-control-label" for="rPerempuan">Perempuan</label>
+			</div> 
+   			<br>
+			<div>
+				<button type="submit" class="btn btn-primary" role="button">Next</button>
+			</div>
+		</form>	
+	</div>
+	<br>
+</body>
+</html>

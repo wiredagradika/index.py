@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/jpeg" href="static/index.jpeg">
+	<title>Hasil Survey</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  	<ul class="navbar-nav">
+			<li class="nav-item active"><a class="navbar-brand" href="/">
+				<img src="/static/index.jpeg" width="40" height="30" class="d-inline-block align-top" alt="">Home</a></li>
+	  	</ul>
+	</nav>
+	<br>
+	<div class="container">
+		<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">
+{% for total in result_p %}
+		    Responden <span class="badge badge-light">{{ total[3] }}</span>
+		</button>
+		<div id="demo" class="collapse">
+			<br>
+			<p>Umur</p>
+			<p>Range 7-17 Tahun : {{ total[0] }} Orang</p>
+		    	<p>Range 18-55 Tahun : {{ total[1] }} Orang</p>
+			<p>Range >56 Tahun : {{ total[2] }} Orang</p>
+{% endfor %}	
+		</div>
+	</div>
+	<br>
+{% for soal in result_d %}
+	<div class="container">
+		<div class="shadow p-4 mb-4 bg-white">
+			<span>{{ soal[0] }}. Pertanyaan: {{ soal[1] }}? </span>
+			<br></br>
+{% if soal[0] == 1 %}
+{% for jawab in result_1 %}
+			<p>Ya {{ jawab[1] }} Suara</p>
+			<p>Cukup {{ jawab[2] }} Suara</p>
+			<p>Tidak {{ jawab[3] }} Suara</p>
+{% endfor %}
+{% endif %}
+{% if soal[0] == 2 %}
+{% for jawab in result_2 %}
+			<p>Ya {{ jawab[1] }} Suara</p>
+			<p>Cukup {{ jawab[2] }} Suara</p>
+			<p>Tidak {{ jawab[3] }} Suara</p>
+{% endfor %}
+{% endif %}
+{% if soal[0] == 3 %}
+{% for jawab in result_3 %}
+			<p>Ya {{ jawab[1] }} Suara</p>
+			<p>Cukup {{ jawab[2] }} Suara</p>
+			<p>Tidak {{ jawab[3] }} Suara</p>
+{% endfor %}
+{% endif %}
+{% if soal[0] == 4 %}
+{% for jawab in result_4 %}
+			<p>Ya {{ jawab[1] }} Suara</p>
+			<p>Cukup {{ jawab[2] }} Suara</p>
+			<p>Tidak {{ jawab[3] }} Suara</p>
+{% endfor %}
+{% endif %}
+		</div>
+	</div>
+{% endfor %}
+	<div class="text-center">
+		<a href="/" class="btn btn-outline-primary" role="button">Home</a>
+	</div>
+	<br>
+</body>
+</html>
