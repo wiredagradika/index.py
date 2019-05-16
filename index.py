@@ -29,6 +29,34 @@ def nextSurvey():
 		cursor.execute("""SELECT * FROM soal""")	
 		result = cursor.fetchall()
 		return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	def setAnswers():
 		cursor.execute("""SELECT * FROM jawaban""")	
 		result = cursor.fetchall()
